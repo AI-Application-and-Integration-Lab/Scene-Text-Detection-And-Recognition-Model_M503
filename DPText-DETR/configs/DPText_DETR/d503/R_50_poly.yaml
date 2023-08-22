@@ -1,0 +1,22 @@
+_BASE_: "../Base.yaml"
+
+DATASETS:
+  TRAIN: ("d503_poly_train",)
+  TEST: ("d503_poly_test",)  
+
+MODEL:
+  WEIGHTS: "output/r_50_poly/pretrain/model_final.pth"  # or the provided pre-trained model
+
+SOLVER:
+  IMS_PER_BATCH: 8
+  BASE_LR: 5e-5
+  LR_BACKBONE: 5e-6
+  WARMUP_ITERS: 0
+  STEPS: (1,)
+  MAX_ITER: 20000
+  CHECKPOINT_PERIOD: 5000
+
+TEST:
+  EVAL_PERIOD: 20000
+
+OUTPUT_DIR: "output/r_50_poly/d503/finetune"
