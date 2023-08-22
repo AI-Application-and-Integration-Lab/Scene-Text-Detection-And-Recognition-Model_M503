@@ -47,8 +47,8 @@ python util/transform_dataset.py
 
 ## Testing
 
-DPText-DETR: [`model_final.pth`](https://drive.google.com/file/d/1mAIpOZz0zSaU9pboWEBDRNXqEGqnQI__/view?usp=sharing)  
-CGT: [`best-check.pth`](https://drive.google.com/file/d/1q5DisfHzaJyQW_kU1yyZLWxjSq2n5OhD/view?usp=sharing)  
+DPText-DETR: [`model_final.pth`](https://drive.google.com/file/d/1QEv__YD8wmENPUS73sCXFbctLkN8or_c/view?usp=sharing)  
+CGT: [`best-check.pth`](https://drive.google.com/file/d/1_880BO0ucA_EDJAAhLJ6t83gT05zA5PQ/view?usp=sharing)  
 Download the model checkpoint and place it into `model(DPText-DETR, CGT)/checkpoints` folder.
 
 ### Detection Module
