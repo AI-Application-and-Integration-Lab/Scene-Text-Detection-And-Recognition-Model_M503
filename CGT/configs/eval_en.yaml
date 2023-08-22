@@ -1,0 +1,67 @@
+global:
+  name: train-ms-js-CSTC # need to change when evaluate the model
+  phase: train
+  stage: train-super
+  workdir: workdir
+  seed: ~
+ 
+dataset:
+  train: {
+    roots: ['/media/avlab/68493891-fbc2-48f2-9fa4-f6ed03d21bd61/CSTC/train/LMDB'],
+    batch_size: 64
+  }
+  test: {
+    roots: ['/media/avlab/68493891-fbc2-48f2-9fa4-f6ed03d21bd61/Alex/NTU_code/evaluation_dataset/evaluation/CUTE80'],
+    batch_size: 64
+  }
+  data_aug: False
+  multiscales: False
+  num_workers: 4
+  charset_path: /media/avlab/68493891-fbc2-48f2-9fa4-f6ed03d21bd61/Alex/NTU_code/data/charset_36.txt #you can change it, this is for chinese recognition
+
+training:
+  epochs: 300
+  show_iters: 10
+  eval_iters: 10
+  save_iters: 10
+
+optimizer:
+  type: Adam
+  true_wd: False
+  wd: 0.0
+  bn_wd: False
+  clip_grad: 20
+  lr: 0.0001
+  args: {
+    betas: !!python/tuple [0.9, 0.999], # for default Adam 
+  }
+  scheduler: {
+    periods: [150, 150],
+    gamma: 0.1,
+  }
+
+model:
+  name: 'modules.model_abinet_iter.ABINetIterModel'
+  iter_size: 20
+  ensemble: ''
+  use_vision: False
+  checkpoint: /media/avlab/68493891-fbc2-48f2-9fa4-f6ed03d21bd61/Alex/NTU_code/workdir/checkpoint_mj-st/best.pth
+  vision: {
+    # checkpoint: /media/avlab/68493891-fbc2-48f2-9fa4-f6ed03d21bd61/Alex/ABINet-Mask-Cross/workdir/pretrain-MAN-on-CS300k-bce-dice-cross/best-pretrain-MAN-on-CS300k-bce-dice-cross.pth,
+    checkpoint: ~,
+    loss_weight: 1.,
+    attention: 'position',
+    backbone: 'transformer',
+    backbone_ln: 3, ##
+    nhead: 8, ##
+  }
+  language: {
+    checkpoint: ~,
+    num_layers: 4,
+    loss_weight: 1.,
+    detach: True,
+    use_self_attn: False
+  }
+  alignment: {
+    loss_weight: 1.,
+  }

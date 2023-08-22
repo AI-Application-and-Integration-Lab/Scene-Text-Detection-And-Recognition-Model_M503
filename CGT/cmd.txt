@@ -1,0 +1,1 @@
+python demo_test.py --config=/media/avlab/68493891-fbc2-48f2-9fa4-f6ed03d21bd61/Alex/ABINet-cross-attention/configs/train_abinet.yaml --checkpoint /media/avlab/68493891-fbc2-48f2-9fa4-f6ed03d21bd61/Alex/ABINet-cross-attention/workdir/train-abinet-on-new_CSTC-MAN-cross-bi/best-train-abinet-on-new_CSTC-MAN-cross-bi.pth
