@@ -114,3 +114,6 @@ The following measures are expressed as percentages. We only use string categori
   year={2023}
 }
 ```
+## Contact
+If you have any question about this project, please feel free to contact r11922081@csie.ntu.edu.tw.
+
